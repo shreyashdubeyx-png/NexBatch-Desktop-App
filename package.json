@@ -1,0 +1,45 @@
+{
+  "name": "nexbatch-desktop",
+  "version": "1.0.0",
+  "description": "NexBatch desktop wrapper",
+  "main": "main.js",
+  "author": "NexBatch",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.nexbatch.desktop",
+    "productName": "NexBatch",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "package.json",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
